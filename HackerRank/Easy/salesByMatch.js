@@ -31,3 +31,24 @@ function sockMerchant(n, ar) {
   // return the count
   return pairs;
 }
+
+// solution using sets:
+function sockMerchant(n, ar) {
+  // counter to count pairs
+  let pairs = 0;
+  // use set to hold numbers
+  const socks = new Set();
+  // go through array
+  for (let i = 0; i < ar.length; i++) {
+    // if number is not in set, then add it to set
+    // if number is in set, then remove it from set and add to counter
+    if (socks.has(ar[i])) {
+      socks.delete(ar[i]);
+      pairs++;
+    } else {
+      socks.add(ar[i]);
+    }
+  }
+  // return counter
+  return pairs;
+}
